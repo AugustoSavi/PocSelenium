@@ -1,20 +1,28 @@
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.ClickAction;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class App {
+public class App{
 
-	public static void main(String[] args) {
+	automatizacaoWhatsapp whats = new automatizacaoWhatsapp();
+
+	public App() throws AWTException {
+        whats.envio();
+    }
+
+	
+	public static void main(String[] args) throws AWTException {
 		
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\guto_\\Documents\\GitHub\\PocSelenium\\chromedriver.exe" );
-		
-		ChromeDriver driver = new ChromeDriver();
-        
-		driver.get("https://web.whatsapp.com/send?l=pt_br&phone={NumberFone}&text={Text}");	
-        driver.manage().window().maximize();
-        
-        driver.findElement(By.xpath("//*[@id='main']/footer/div[1]/div[3]/button")).click();
-        
+		new App();
+
 	}
 
 }
